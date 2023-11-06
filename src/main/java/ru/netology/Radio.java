@@ -1,8 +1,31 @@
 package ru.netology;
 
 public class Radio {
-    private int currentRadioStationNumber;
+    private int numberRadioStations = 10;
+    private int minNumberRadioStations = 0;
+    private int maxNumberRadioStations = 9;
+    private int currentRadioStationNumber = minNumberRadioStations;
     private int currentVolume;
+
+    public Radio (int numberRadioStations) {
+        this.numberRadioStations = numberRadioStations;
+        this.minNumberRadioStations = minNumberRadioStations;
+        this.maxNumberRadioStations = minNumberRadioStations+numberRadioStations-1;
+        this.currentRadioStationNumber = minNumberRadioStations;
+    }
+
+    public Radio () {
+    }
+
+    public int getMinNumberRadioStations() {
+
+        return minNumberRadioStations;
+    }
+
+    public int getMaxNumberRadioStations() {
+
+        return maxNumberRadioStations;
+    }
 
     public int getCurrentRadioStationNumber() {
 
@@ -10,29 +33,29 @@ public class Radio {
     }
 
     public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) {
-        if (newCurrentRadioStationNumber < 0) {
+        if (newCurrentRadioStationNumber < minNumberRadioStations) {
             return;
         }
-        if (newCurrentRadioStationNumber > 9) {
+        if (newCurrentRadioStationNumber > maxNumberRadioStations) {
             return;
         }
         currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
     public void nextRadioStationNumber() {
-        if (currentRadioStationNumber < 9) {
+        if (currentRadioStationNumber < maxNumberRadioStations) {
             currentRadioStationNumber++;
         } else {
-            currentRadioStationNumber = 0;
+            currentRadioStationNumber = minNumberRadioStations;
         }
         setCurrentRadioStationNumber(currentRadioStationNumber);
     }
 
     public void prevRadioStationNumber() {
-        if (currentRadioStationNumber > 0) {
+        if (currentRadioStationNumber > minNumberRadioStations) {
             currentRadioStationNumber=currentRadioStationNumber-1;
         } else {
-            currentRadioStationNumber = 9;
+            currentRadioStationNumber = maxNumberRadioStations;
         }
         setCurrentRadioStationNumber(currentRadioStationNumber);
     }
