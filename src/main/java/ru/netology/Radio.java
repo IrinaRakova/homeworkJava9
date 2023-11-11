@@ -1,12 +1,9 @@
 package ru.netology;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
+
 public class Radio {
     private int numberRadioStations = 10;
     private int minNumberRadioStations = 0;
