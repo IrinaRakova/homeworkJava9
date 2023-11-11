@@ -2,6 +2,7 @@ package ru.netology;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+
 public class RadioTest {
     @Test
     public void shouldSetCurrentRadioStationNumber() {
@@ -166,6 +167,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNotSetNextCurrentVolumeAboveMax() {
         Radio radio = new Radio();
