@@ -1,67 +1,76 @@
 package ru.netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
-    private int currentRadioStationNumber;
+    private int numberRadioStations = 10;
+    private int minNumberRadioStations = 0;
+    private int maxNumberRadioStations = 9;
+    private int currentRadioStationNumber = minNumberRadioStations;
     private int currentVolume;
 
-    public int getCurrentRadioStationNumber() {
-
-        return currentRadioStationNumber;
+    public Radio(int numberRadioStations) {
+        this.currentRadioStationNumber = this.minNumberRadioStations;
+        this.currentRadioStationNumber = this.minNumberRadioStations;
+        this.numberRadioStations = numberRadioStations;
+        this.minNumberRadioStations = this.minNumberRadioStations;
+        this.maxNumberRadioStations = this.minNumberRadioStations + numberRadioStations - 1;
+        this.currentRadioStationNumber = this.currentRadioStationNumber;
+        this.currentVolume = this.currentVolume;
     }
 
     public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) {
-        if (newCurrentRadioStationNumber < 0) {
-            return;
+        if (newCurrentRadioStationNumber >= this.minNumberRadioStations) {
+            if (newCurrentRadioStationNumber <= this.maxNumberRadioStations) {
+                this.currentRadioStationNumber = newCurrentRadioStationNumber;
+            }
         }
-        if (newCurrentRadioStationNumber > 9) {
-            return;
-        }
-        currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
     public void nextRadioStationNumber() {
-        if (currentRadioStationNumber < 9) {
-            currentRadioStationNumber++;
+        if (this.currentRadioStationNumber < this.maxNumberRadioStations) {
+            ++this.currentRadioStationNumber;
         } else {
-            currentRadioStationNumber = 0;
+            this.currentRadioStationNumber = this.minNumberRadioStations;
         }
-        setCurrentRadioStationNumber(currentRadioStationNumber);
+        this.setCurrentRadioStationNumber(this.currentRadioStationNumber);
     }
 
     public void prevRadioStationNumber() {
-        if (currentRadioStationNumber > 0) {
-            currentRadioStationNumber=currentRadioStationNumber-1;
+        if (this.currentRadioStationNumber > this.minNumberRadioStations) {
+            --this.currentRadioStationNumber;
         } else {
-            currentRadioStationNumber = 9;
+            this.currentRadioStationNumber = this.maxNumberRadioStations;
         }
-        setCurrentRadioStationNumber(currentRadioStationNumber);
-    }
-
-    public int getCurrentVolume() {
-
-        return currentVolume;
+        this.setCurrentRadioStationNumber(this.currentRadioStationNumber);
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            return;
+        if (newCurrentVolume >= 0) {
+            if (newCurrentVolume <= 100) {
+                this.currentVolume = newCurrentVolume;
+            }
         }
-        if (newCurrentVolume > 100) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
     }
+
     public void increaseVolume() {
-        if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
+        if (this.currentVolume < 100) {
+            ++this.currentVolume;
         }
-        setCurrentVolume(currentVolume);
+        this.setCurrentVolume(this.currentVolume);
     }
 
     public void reduceVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
+        if (this.currentVolume > 0) {
+            --this.currentVolume;
         }
-        setCurrentVolume(currentVolume);
+        this.setCurrentVolume(this.currentVolume);
     }
 }
+
