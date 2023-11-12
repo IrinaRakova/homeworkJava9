@@ -25,26 +25,6 @@ public class Radio {
         this.currentVolume = this.currentVolume;
     }
 
-    public int getNumberRadioStations() {
-        return this.numberRadioStations;
-    }
-
-    public int getMinNumberRadioStations() {
-        return this.minNumberRadioStations;
-    }
-
-    public int getMaxNumberRadioStations() {
-        return this.maxNumberRadioStations;
-    }
-
-    public int getCurrentRadioStationNumber() {
-        return this.currentRadioStationNumber;
-    }
-
-    public int getCurrentVolume() {
-        return this.currentVolume;
-    }
-
     public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) {
         if (newCurrentRadioStationNumber >= this.minNumberRadioStations) {
             if (newCurrentRadioStationNumber <= this.maxNumberRadioStations) {
@@ -59,7 +39,6 @@ public class Radio {
         } else {
             this.currentRadioStationNumber = this.minNumberRadioStations;
         }
-
         this.setCurrentRadioStationNumber(this.currentRadioStationNumber);
     }
 
@@ -69,7 +48,6 @@ public class Radio {
         } else {
             this.currentRadioStationNumber = this.maxNumberRadioStations;
         }
-
         this.setCurrentRadioStationNumber(this.currentRadioStationNumber);
     }
 
@@ -85,7 +63,6 @@ public class Radio {
         if (this.currentVolume < 100) {
             ++this.currentVolume;
         }
-
         this.setCurrentVolume(this.currentVolume);
     }
 
@@ -93,7 +70,6 @@ public class Radio {
         if (this.currentVolume > 0) {
             --this.currentVolume;
         }
-
         this.setCurrentVolume(this.currentVolume);
     }
 }
